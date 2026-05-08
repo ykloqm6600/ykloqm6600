@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="style.css">
+<div id="bg"></div>
+
+<div class="game">
+
+  <h1 class="title">壞壞里魚</h1>
+
+  <div class="pet-area">
+    <div id="hearts"></div>
+
+    <img
+      id="pet"
+      src="https://raw.githubusercontent.com/ykloqm6600/ykloqm6600/main/normal.png"
+      alt="壞壞里魚"
+    >
+  </div>
+
+  <div id="speech" class="speech">
+    你怎麼又來了？不用上班嗎？
+  </div>
+
+  <div class="status">
+    <div class="status-box">
+      <span class="label">親密度</span>
+      <span id="love">0</span>
+    </div>
+
+    <div class="status-box">
+      <span class="label">心情</span>
+      <span id="mood">50</span>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button type="button" onclick="petPet()">摸摸</button>
+    <button type="button" onclick="feedPet()">餵食</button>
+    <button type="button" onclick="sleepPet()">睡覺</button>
+  </div>
+
+</div>
+<p id="titleText">陌生人</p>
+<script src="script.js"></script>
