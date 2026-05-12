@@ -58,7 +58,20 @@ body {
 
   /* 背景圖片 */
   background-image: url("https://raw.githubusercontent.com/ykloqm6600/ykloqm6600/main/office-bg.png");
+  
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 
+  background-image: url("https://raw.githubusercontent.com/ykloqm6600/ykloqm6600/main/office-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
   /* 填滿畫面 */
   background-size: cover;
 
