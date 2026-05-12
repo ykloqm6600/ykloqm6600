@@ -1,78 +1,146 @@
+/* =========================
+   整體頁面
+========================= */
 body {
+  /* 移除瀏覽器預設邊距 */
   margin: 0;
+
+  /* 使用簡單無襯線字體 */
   font-family: sans-serif;
+
+  /* 防止畫面左右滑動 */
   overflow-x: hidden;
+
+  /* 預設背景色 */
   background: #f4efe8;
 }
 
+/* =========================
+   遊戲主容器
+========================= */
 .game {
+  /* 讓內部特效可以定位 */
   position: relative;
+
+  /* 手機畫面寬度 */
   max-width: 420px;
+
+  /* 至少佔滿整個螢幕高度 */
   min-height: 100vh;
+
+  /* 置中 */
   margin: auto;
+
+  /* 內距 */
   padding: 24px;
+
+  /* 避免 padding 撐爆寬度 */
   box-sizing: border-box;
+
+  /* 文字置中 */
   text-align: center;
 }
 
-/* 背景 */
+/* =========================
+   背景
+========================= */
 #bg {
+
   position: fixed;
+
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
+
   z-index: -1;
 
-  background: linear-gradient(180deg, #ffd7a8 0%, #fff2d8 100%);
-  transition: background 1s;
-}
+  /* 背景圖片 */
+  background-image: url("https://raw.githubusercontent.com/ykloqm6600/ykloqm6600/main/office-bg.png");
 
-/* 夜晚背景 */
-#bg.night {
-  background: linear-gradient(180deg, #151c3b 0%, #2f3f72 100%);
-}
+  /* 填滿畫面 */
+  background-size: cover;
 
-/* 標題 */
+  /* 置中 */
+  background-position: center;
+
+  /* 不重複 */
+  background-repeat: no-repeat;
+
+  /* 滾動時固定 */
+  background-attachment: fixed;
+}
+/* =========================
+   標題
+========================= */
 .title {
+  /* 標題大小 */
   font-size: 38px;
+
+  /* 下方留空間 */
   margin: 0 0 20px;
+
+  /* 文字顏色 */
   color: #333;
+
+  /* 白色陰影，讓標題有立體感 */
   text-shadow: 0 3px 0 rgba(255, 255, 255, 0.5);
 }
 
-/* 角色區 */
+/* =========================
+   角色區
+========================= */
 .pet-area {
+  /* 讓愛心特效可以以這區為基準定位 */
   position: relative;
+
+  /* 上下間距 */
   margin: 20px 0;
 }
 
+/* 角色圖片 */
 #pet {
+  /* 角色寬度 */
   width: 240px;
+
+  /* 小螢幕時不要超出畫面 */
   max-width: 80%;
+
+  /* 預設漂浮動畫 */
   animation: float 2.5s infinite ease-in-out;
 }
 
-/* 漂浮動畫 */
+/* =========================
+   漂浮動畫
+========================= */
 @keyframes float {
   0% {
+    /* 原位 */
     transform: translateY(0);
   }
 
   50% {
+    /* 往上飄一點 */
     transform: translateY(-8px);
   }
 
   100% {
+    /* 回到原位 */
     transform: translateY(0);
   }
 }
 
-/* 抖動動畫 */
+/* =========================
+   抖動動畫
+========================= */
+
+/* JS 加上 shake class 時會觸發 */
 #pet.shake {
   animation: shake 0.25s;
 }
 
+/* 左右晃動 */
 @keyframes shake {
   0% {
     transform: translateX(0);
@@ -95,23 +163,39 @@ body {
   }
 }
 
-/* 愛心特效 */
+/* =========================
+   愛心特效
+========================= */
 #hearts {
+  /* 疊在角色區上方 */
   position: absolute;
+
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
+
+  /* 不會擋到按鈕或點擊 */
   pointer-events: none;
 }
 
+/* 單顆愛心 */
 .heart {
+  /* 用 JS 隨機控制左右位置 */
   position: absolute;
+
+  /* 愛心從角色附近開始飄 */
   bottom: 80px;
+
+  /* 愛心大小 */
   font-size: 30px;
+
+  /* 愛心往上飄並消失 */
   animation: heartFloat 1s forwards;
 }
 
+/* 愛心飄起動畫 */
 @keyframes heartFloat {
   0% {
     opacity: 1;
@@ -124,75 +208,150 @@ body {
   }
 }
 
-/* 對話框 */
+/* =========================
+   對話框
+========================= */
 .speech {
+  /* 半透明白色背景 */
   background: rgba(255, 255, 255, 0.95);
+
+  /* 粗黑框 */
   border: 4px solid #333;
+
+  /* 圓角 */
   border-radius: 24px;
+
+  /* 內距 */
   padding: 20px;
+
+  /* 文字大小 */
   font-size: 22px;
+
+  /* 行距 */
   line-height: 1.6;
+
+  /* 對話框最小高度 */
   min-height: 100px;
 
+  /* 讓文字垂直水平置中 */
   display: flex;
   align-items: center;
   justify-content: center;
 
+  /* 下方間距 */
   margin-bottom: 24px;
+
+  /* 陰影 */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* 狀態 */
+/* =========================
+   狀態欄
+========================= */
 .status {
+  /* 讓親密度與心情橫向排列 */
   display: flex;
+
+  /* 置中 */
   justify-content: center;
+
+  /* 兩個狀態框的距離 */
   gap: 16px;
+
+  /* 下方間距 */
   margin-bottom: 24px;
 }
 
+/* 單個狀態框 */
 .status-box {
+  /* 半透明白底 */
   background: rgba(255, 255, 255, 0.95);
+
+  /* 黑框 */
   border: 3px solid #333;
+
+  /* 圓角 */
   border-radius: 18px;
+
+  /* 內距 */
   padding: 14px 18px;
+
+  /* 最小寬度 */
   min-width: 120px;
+
+  /* 陰影 */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* 狀態名稱，例如親密度、心情 */
 .label {
+  /* 換行顯示 */
   display: block;
+
+  /* 文字大小 */
   font-size: 18px;
+
+  /* 與數字的距離 */
   margin-bottom: 8px;
+
+  /* 灰色文字 */
   color: #666;
 }
 
+/* 親密度與心情數字 */
 #love,
 #mood {
+  /* 數字放大 */
   font-size: 30px;
+
+  /* 粗體 */
   font-weight: bold;
 }
 
-/* 按鈕 */
+/* =========================
+   按鈕區
+========================= */
 .buttons {
+  /* 按鈕直向排列 */
   display: grid;
+
+  /* 按鈕間距 */
   gap: 14px;
 }
 
+/* 所有按鈕 */
 button {
+  /* 文字大小 */
   font-size: 24px;
+
+  /* 按鈕內距 */
   padding: 18px;
+
+  /* 圓角 */
   border-radius: 20px;
+
+  /* 粗黑框 */
   border: 4px solid #333;
+
+  /* 淡黃色背景 */
   background: #fff6c7;
+
+  /* 滑鼠移上去變手指 */
   cursor: pointer;
+
+  /* 點擊縮放動畫 */
   transition: transform 0.15s;
+
+  /* 陰影 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
 }
 
+/* 滑鼠移到按鈕上 */
 button:hover {
   transform: scale(1.03);
 }
 
+/* 按下按鈕時 */
 button:active {
   transform: scale(0.96);
 }
